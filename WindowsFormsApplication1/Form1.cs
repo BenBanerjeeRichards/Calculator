@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.Drawing;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace WindowsFormsApplication1
@@ -46,20 +46,6 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DisplayEntry d1 = new DisplayEntry(DisplayType.CALCULATION, "3 + 1");
-            DisplayEntry d2 = new DisplayEntry(DisplayType.RESULT, "4");
-            DisplayEntry d3 = new DisplayEntry(DisplayType.CALCULATION, "7 / 0");
-            DisplayEntry d4 = new DisplayEntry(DisplayType.ERROR, "Error: Divide by Zero");
-
-            addDisplayEntry(d1);
-            addDisplayEntry(d2);
-            addDisplayEntry(d3);
-            addDisplayEntry(d4);
- 
-
-            writeHTMLToWebBrowser("</body></html>");
-
-            webBrowser1.Document.Body.ScrollTop += webBrowser1.Height;
 
         }
 
@@ -81,7 +67,8 @@ namespace WindowsFormsApplication1
             // Will replace when  I have figured out how events and threading works in C#
             Application.DoEvents();
 
-            webBrowser1.Document.Body.ScrollTop += webBrowser1.Height;
+           webBrowser1.Document.Body.ScrollTop += 100000;
+
 
 
         }
@@ -149,6 +136,7 @@ namespace WindowsFormsApplication1
             if (e.KeyCode == Keys.Enter)
             {
                 string contents = textBox1.Text;
+                textBox1.Text = "";
 
                 CalculatorMessage cm = calc.evalulate(contents);
                 Console.WriteLine(cm);
@@ -156,7 +144,6 @@ namespace WindowsFormsApplication1
                 DisplayEntry dm = new DisplayEntry((cm.getStatus() == Status.SUCCESS) ? DisplayType.RESULT : DisplayType.ERROR, cm.getBody());
                 addDisplayEntry(dm);
 
-                textBox1.Text = "";
 
             }
         }

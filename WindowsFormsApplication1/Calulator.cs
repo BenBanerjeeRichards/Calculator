@@ -149,7 +149,7 @@ namespace WindowsFormsApplication1
                     addFunction(fn);
 
 
-                   return new CalculatorMessage(Status.SUCCESS, "", "evalulateExpression_11: Created Function");
+                   return new CalculatorMessage(Status.SUCCESS, "Created function " + fn.getName(), "evalulateExpression_11: Created Function");
                 }
             }
             else
