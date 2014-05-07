@@ -39,11 +39,11 @@ namespace WindowsFormsApplication1
             switch (displayType)
             {
                 case DisplayType.CALCULATION:
-                    return "#444444"; // grey
+                    return "#099"; // Light blue
                 case DisplayType.RESULT:
                     return "4444FF";  // blue
                 case DisplayType.ERROR:
-                    return "FF2222";  // red
+                    return "F00";  // red
                 default:
                     return "#000000"; // black
             }
