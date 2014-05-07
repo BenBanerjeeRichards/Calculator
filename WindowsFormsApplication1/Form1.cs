@@ -50,33 +50,38 @@ namespace WindowsFormsApplication1
             DisplayEntry d3 = new DisplayEntry(DisplayType.CALCULATION, "7 / 0");
             DisplayEntry d4 = new DisplayEntry(DisplayType.ERROR, "Error: Divide by Zero");
 
-            writeHTMLToWebBrowser(d1.getHTML());
-            writeHTMLToWebBrowser(d2.getHTML());
-            writeHTMLToWebBrowser(d3.getHTML());
-            writeHTMLToWebBrowser(d4.getHTML());
-            writeHTMLToWebBrowser(d3.getHTML());
-            writeHTMLToWebBrowser(d4.getHTML());
-            writeHTMLToWebBrowser(d2.getHTML());
-            writeHTMLToWebBrowser(d1.getHTML());
+            addDisplayEntry(d1);
+            addDisplayEntry(d2);
+            addDisplayEntry(d3);
+            addDisplayEntry(d4);
+ 
 
             writeHTMLToWebBrowser("</body></html>");
 
-            
-            Console.WriteLine(webBrowser1.DocumentText);
+            webBrowser1.Document.Body.ScrollTop += webBrowser1.Height;
+
         }
 
-        private  void writeHTMLToWebBrowser(string html)
+        private void addDisplayEntry(DisplayEntry entry)
+        {
+            writeHTMLToWebBrowser(entry.getHTML());
+        }
+
+        private void writeHTMLToWebBrowser(string html)
         {
             this.html += html;
 
             webBrowser1.Navigate("about:blank");
-            HtmlDocument doc = webBrowser1.Document;
+            HtmlDocument doc = webBrowser1.Document;  
             doc.Write(String.Empty);
             webBrowser1.DocumentText = this.html;
 
             // Definitly a bad idea.
             // Will replace when  I have figured out how events and threading works in C#
             Application.DoEvents();
+
+            webBrowser1.Document.Body.ScrollTop += webBrowser1.Height;
+
 
         }
 
