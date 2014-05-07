@@ -46,7 +46,24 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            for (int height = 1; height <= 8; height++)
+            {
 
+                for (int width = 1; width <= 3; width++)
+                {
+                    Point point = new Point();
+                    point.X = 94 * (width - 1) + 3;
+                    point.Y = 29 * (height - 1) + 42;
+
+                    Button btn = new Button();
+                    btn.Name = point.X + point.Y + "";
+                    btn.Size = new Size(86, 23);
+                    btn.Location = point;
+                    btn.Text = "Variable";
+                    panelVariables.Controls.Add(btn);
+
+                }
+            }
         }
 
         private void addDisplayEntry(DisplayEntry entry)
@@ -144,6 +161,11 @@ namespace WindowsFormsApplication1
                 DisplayEntry dm = new DisplayEntry((cm.getStatus() == Status.SUCCESS) ? DisplayType.RESULT : DisplayType.ERROR, cm.getBody());
                 addDisplayEntry(dm);
             }
+        }
+
+        private void updateFunctionPane()
+        {
+           
         }
         
 

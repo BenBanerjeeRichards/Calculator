@@ -24,7 +24,17 @@ namespace WindowsFormsApplication1
             return evalulateExpression(tokenise(expr));
         }
 
-        public CalculatorMessage evalulateExpression(List<string> expression)
+        public List<Variable> getVariables()
+        {
+            return variables;
+        }
+
+        public List<Function> getFunctions()
+        {
+            return functions;
+        }
+
+        private CalculatorMessage evalulateExpression(List<string> expression)
         {
             // Check if the expression is an assignment
             if (expression.Contains("="))

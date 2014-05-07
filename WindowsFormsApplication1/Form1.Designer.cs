@@ -77,7 +77,8 @@
             this.panelFunctions = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panelVariables = new System.Windows.Forms.Panel();
-            this.button30 = new System.Windows.Forms.Button();
+            this.button40 = new System.Windows.Forms.Button();
+            this.button41 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelKeypad.SuspendLayout();
             this.panelFunctions.SuspendLayout();
@@ -526,20 +527,30 @@
             // 
             // panelVariables
             // 
-            this.panelVariables.Controls.Add(this.button30);
+            this.panelVariables.Controls.Add(this.button41);
+            this.panelVariables.Controls.Add(this.button40);
             this.panelVariables.Location = new System.Drawing.Point(12, 183);
             this.panelVariables.Name = "panelVariables";
             this.panelVariables.Size = new System.Drawing.Size(280, 301);
             this.panelVariables.TabIndex = 7;
             // 
-            // button30
+            // button40
             // 
-            this.button30.Location = new System.Drawing.Point(14, 13);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(86, 23);
-            this.button30.TabIndex = 0;
-            this.button30.Text = "New Variable";
-            this.button30.UseVisualStyleBackColor = true;
+            this.button40.Location = new System.Drawing.Point(3, 278);
+            this.button40.Name = "button40";
+            this.button40.Size = new System.Drawing.Size(86, 23);
+            this.button40.TabIndex = 8;
+            this.button40.Text = "Prev";
+            this.button40.UseVisualStyleBackColor = true;
+            // 
+            // button41
+            // 
+            this.button41.Location = new System.Drawing.Point(191, 275);
+            this.button41.Name = "button41";
+            this.button41.Size = new System.Drawing.Size(86, 23);
+            this.button41.TabIndex = 8;
+            this.button41.Text = "Next";
+            this.button41.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -620,7 +631,8 @@
         private System.Windows.Forms.Panel panelFunctions;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelVariables;
-        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button button41;
+        private System.Windows.Forms.Button button40;
 
     }
 }
