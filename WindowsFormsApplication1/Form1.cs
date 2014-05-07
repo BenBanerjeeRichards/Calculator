@@ -21,17 +21,12 @@ namespace WindowsFormsApplication1
         private List<Function> functionList = new List<Function>();
 
         private string html = "";
-        PanelFactory panelFactory = new PanelFactory();
 
+        private PanelFactory panelFactory = new PanelFactory();
 
         public Form1()
         {
             InitializeComponent();
-
-            Calculator calc = new Calculator();
-            string[] t = { "3", "-", "u2"};
-            Console.WriteLine(calc.evalulateExpression(new List<string>(t)));
-
 
             panelFactory.variablePanel = panelVariables;
             panelFactory.functionPanel = panelFunctions;
@@ -153,7 +148,12 @@ namespace WindowsFormsApplication1
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Console.WriteLine("Entry Key Pressed");
+                string contents = textBox1.Text;
+
+                Console.WriteLine(calc.evalulate(contents));
+                //calc.evalulate(contents);
+                textBox1.Text = "";
+
             }
         }
         

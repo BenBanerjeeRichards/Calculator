@@ -167,8 +167,19 @@ namespace WindowsFormsApplication1
         private List<string> tokenise(string expr)
         {
             List<string> tokens = new List<string>();
+            string regex = @"([a-zA-Z]+)|=|-?[0-9]+\.?[0-9]{0,}|\(|\)|\+|\-|\*|\/|\^";
 
+            foreach (Match m in Regex.Matches(expr, regex))
+            {
+                tokens.Add(m.Value);
+            }
 
+            foreach (var t in tokens)
+            {
+                Console.Write(t + " ");
+            }
+
+            Console.WriteLine();
 
             return tokens;
         }
