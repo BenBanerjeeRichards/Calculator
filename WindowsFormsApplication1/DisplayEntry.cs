@@ -41,9 +41,9 @@ namespace WindowsFormsApplication1
                 case DisplayType.CALCULATION:
                     return "#099"; // Light blue
                 case DisplayType.RESULT:
-                    return "4444FF";  // blue
+                    return "#099";  // blue
                 case DisplayType.ERROR:
-                    return "F00";  // red
+                    return "#F00";  // red
                 default:
                     return "#000000"; // black
             }

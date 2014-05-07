@@ -38,7 +38,7 @@ namespace WindowsFormsApplication1
             leftPanel = panelVariables;
             rightPanel = panelKeypad;
 
-            writeHTMLToWebBrowser("<html> <body style=\"font-family:calibri; margin:10px;\">");
+            writeHTMLToWebBrowser("<html> <body style=\"font-family:consolas; margin:10px;\">");
             webBrowser1.Document.Window.ScrollTo(0, Int16.MaxValue);
 
 
@@ -143,8 +143,6 @@ namespace WindowsFormsApplication1
 
                 DisplayEntry dm = new DisplayEntry((cm.getStatus() == Status.SUCCESS) ? DisplayType.RESULT : DisplayType.ERROR, cm.getBody());
                 addDisplayEntry(dm);
-
-
             }
         }
         
