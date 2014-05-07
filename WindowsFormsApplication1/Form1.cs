@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace WindowsFormsApplication1
 {
@@ -26,6 +27,11 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
+
+            Calculator calc = new Calculator();
+            string[] t = { "3", "-", "u2"};
+            Console.WriteLine(calc.evalulateExpression(new List<string>(t)));
+
 
             panelFactory.variablePanel = panelVariables;
             panelFactory.functionPanel = panelFunctions;
@@ -143,6 +149,13 @@ namespace WindowsFormsApplication1
             setRightPanel(panelFactory.getInstance(sender.ToString()));
         }
 
+        private void textEntrySubmittedHandler(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Console.WriteLine("Entry Key Pressed");
+            }
+        }
         
 
     }

@@ -19,6 +19,11 @@ namespace WindowsFormsApplication1
             variables.Add(new Variable("phi", (1 + Math.Sqrt(5)) / 2, true));
         }
 
+        public CalculatorMessage evalulate(string expr)
+        {
+            return evalulateExpression(tokenise(expr));
+        }
+
         public CalculatorMessage evalulateExpression(List<string> expression)
         {
             // Check if the expression is an assignment
@@ -157,6 +162,15 @@ namespace WindowsFormsApplication1
 
             return new CalculatorMessage(Status.ERROR, "Malformed Expression", "evalulate_1: ");
 
+        }
+
+        private List<string> tokenise(string expr)
+        {
+            List<string> tokens = new List<string>();
+
+
+
+            return tokens;
         }
 
         private CalculatorMessage evalulateFunction(Function fn, List<string> args)
@@ -452,13 +466,22 @@ namespace WindowsFormsApplication1
 
         private Decimal stringToDecimal(string str)
         {
+            bool isNegative = false;
+            if (str.First().ToString().Equals("u") && str.Length != 1)
+            {
+                // negative 
+                str = str.Substring(1, str.Length - 1);
+                isNegative = true;
+            }
+
             Decimal dec = new Decimal();
 
             if (Decimal.TryParse(str, out dec))
             {
-                return dec;
+                return isNegative ? dec * -1 : dec;
             }
-            Console.WriteLine("stringToDecimal: failed convertion");
+
+            Console.WriteLine("stringToDecimal: failed convertion " + str);
             return new Decimal();
 
         }
@@ -556,7 +579,7 @@ namespace WindowsFormsApplication1
 
         private bool isNumber(string token)
         {
-            return Regex.Match(token, "^-?[0-9]+\\.?[0-9]{0,}$", RegexOptions.None).Success;
+            return Regex.Match(token, "^u?[0-9]+\\.?[0-9]{0,}$", RegexOptions.None).Success;
         }
 
         private bool isNativeFunction(string token)

@@ -126,27 +126,27 @@
             this.menuPanel1Functions,
             this.menuPanel1Variables});
             this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.standardToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.standardToolStripMenuItem.Text = "Left Panel";
             // 
             // menuPanel1Keypad
             // 
             this.menuPanel1Keypad.Name = "menuPanel1Keypad";
-            this.menuPanel1Keypad.Size = new System.Drawing.Size(152, 22);
+            this.menuPanel1Keypad.Size = new System.Drawing.Size(126, 22);
             this.menuPanel1Keypad.Text = "Keypad";
             this.menuPanel1Keypad.Click += new System.EventHandler(this.leftPanelEventHandler);
             // 
             // menuPanel1Functions
             // 
             this.menuPanel1Functions.Name = "menuPanel1Functions";
-            this.menuPanel1Functions.Size = new System.Drawing.Size(152, 22);
+            this.menuPanel1Functions.Size = new System.Drawing.Size(126, 22);
             this.menuPanel1Functions.Text = "Functions";
             this.menuPanel1Functions.Click += new System.EventHandler(this.leftPanelEventHandler);
             // 
             // menuPanel1Variables
             // 
             this.menuPanel1Variables.Name = "menuPanel1Variables";
-            this.menuPanel1Variables.Size = new System.Drawing.Size(152, 22);
+            this.menuPanel1Variables.Size = new System.Drawing.Size(126, 22);
             this.menuPanel1Variables.Text = "Variables";
             this.menuPanel1Variables.Click += new System.EventHandler(this.leftPanelEventHandler);
             // 
@@ -157,27 +157,27 @@
             this.menuPanel2Functions,
             this.menuPanel2Variables});
             this.functionsToolStripMenuItem.Name = "functionsToolStripMenuItem";
-            this.functionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.functionsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.functionsToolStripMenuItem.Text = "Right Panel";
             // 
             // menuPanel2Keypad
             // 
             this.menuPanel2Keypad.Name = "menuPanel2Keypad";
-            this.menuPanel2Keypad.Size = new System.Drawing.Size(152, 22);
+            this.menuPanel2Keypad.Size = new System.Drawing.Size(126, 22);
             this.menuPanel2Keypad.Text = "Keypad";
             this.menuPanel2Keypad.Click += new System.EventHandler(this.rightPanelEventHandler);
             // 
             // menuPanel2Functions
             // 
             this.menuPanel2Functions.Name = "menuPanel2Functions";
-            this.menuPanel2Functions.Size = new System.Drawing.Size(152, 22);
+            this.menuPanel2Functions.Size = new System.Drawing.Size(126, 22);
             this.menuPanel2Functions.Text = "Functions";
             this.menuPanel2Functions.Click += new System.EventHandler(this.rightPanelEventHandler);
             // 
             // menuPanel2Variables
             // 
             this.menuPanel2Variables.Name = "menuPanel2Variables";
-            this.menuPanel2Variables.Size = new System.Drawing.Size(152, 22);
+            this.menuPanel2Variables.Size = new System.Drawing.Size(126, 22);
             this.menuPanel2Variables.Text = "Variables";
             this.menuPanel2Variables.Click += new System.EventHandler(this.rightPanelEventHandler);
             // 
@@ -210,6 +210,7 @@
             this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBox1.Size = new System.Drawing.Size(566, 25);
             this.textBox1.TabIndex = 2;
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textEntrySubmittedHandler);
             // 
             // webBrowser1
             // 
