@@ -25,6 +25,9 @@ namespace WindowsFormsApplication1
             this.meta = meta;
         }
 
+
+        // I come from Java
+        // TODO replace with {get;set}
         public Status getStatus()
         {
             return status;

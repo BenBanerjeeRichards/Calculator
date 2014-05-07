@@ -150,8 +150,12 @@ namespace WindowsFormsApplication1
             {
                 string contents = textBox1.Text;
 
-                Console.WriteLine(calc.evalulate(contents));
-                //calc.evalulate(contents);
+                CalculatorMessage cm = calc.evalulate(contents);
+                Console.WriteLine(cm);
+
+                DisplayEntry dm = new DisplayEntry((cm.getStatus() == Status.SUCCESS) ? DisplayType.RESULT : DisplayType.ERROR, cm.getBody());
+                addDisplayEntry(dm);
+
                 textBox1.Text = "";
 
             }
