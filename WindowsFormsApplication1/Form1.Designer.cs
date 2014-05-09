@@ -75,10 +75,13 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panelFunctions = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
             this.panelVariables = new System.Windows.Forms.Panel();
+            this.button32 = new System.Windows.Forms.Button();
             this.button40 = new System.Windows.Forms.Button();
-            this.button41 = new System.Windows.Forms.Button();
+            this.button33 = new System.Windows.Forms.Button();
+            this.button34 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelKeypad.SuspendLayout();
             this.panelFunctions.SuspendLayout();
@@ -510,47 +513,77 @@
             // 
             // panelFunctions
             // 
-            this.panelFunctions.Controls.Add(this.button1);
+            this.panelFunctions.Controls.Add(this.button34);
+            this.panelFunctions.Controls.Add(this.button33);
+            this.panelFunctions.Controls.Add(this.button31);
             this.panelFunctions.Location = new System.Drawing.Point(12, 183);
             this.panelFunctions.Name = "panelFunctions";
             this.panelFunctions.Size = new System.Drawing.Size(280, 301);
             this.panelFunctions.TabIndex = 6;
             // 
-            // button1
+            // button30
             // 
-            this.button1.Location = new System.Drawing.Point(15, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "New Function";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button30.Location = new System.Drawing.Point(191, 275);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(86, 23);
+            this.button30.TabIndex = 9;
+            this.button30.Text = "Next";
+            this.button30.UseVisualStyleBackColor = true;
+            // 
+            // button31
+            // 
+            this.button31.Location = new System.Drawing.Point(3, 275);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(86, 23);
+            this.button31.TabIndex = 10;
+            this.button31.Text = "Prev";
+            this.button31.UseVisualStyleBackColor = true;
             // 
             // panelVariables
             // 
-            this.panelVariables.Controls.Add(this.button41);
+            this.panelVariables.Controls.Add(this.button30);
+            this.panelVariables.Controls.Add(this.button32);
             this.panelVariables.Controls.Add(this.button40);
             this.panelVariables.Location = new System.Drawing.Point(12, 183);
             this.panelVariables.Name = "panelVariables";
             this.panelVariables.Size = new System.Drawing.Size(280, 301);
             this.panelVariables.TabIndex = 7;
             // 
+            // button32
+            // 
+            this.button32.Location = new System.Drawing.Point(3, 3);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(86, 23);
+            this.button32.TabIndex = 9;
+            this.button32.Text = "New Variable";
+            this.button32.UseVisualStyleBackColor = true;
+            // 
             // button40
             // 
-            this.button40.Location = new System.Drawing.Point(3, 278);
+            this.button40.Location = new System.Drawing.Point(3, 275);
             this.button40.Name = "button40";
             this.button40.Size = new System.Drawing.Size(86, 23);
             this.button40.TabIndex = 8;
             this.button40.Text = "Prev";
             this.button40.UseVisualStyleBackColor = true;
             // 
-            // button41
+            // button33
             // 
-            this.button41.Location = new System.Drawing.Point(191, 275);
-            this.button41.Name = "button41";
-            this.button41.Size = new System.Drawing.Size(86, 23);
-            this.button41.TabIndex = 8;
-            this.button41.Text = "Next";
-            this.button41.UseVisualStyleBackColor = true;
+            this.button33.Location = new System.Drawing.Point(191, 275);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(86, 23);
+            this.button33.TabIndex = 11;
+            this.button33.Text = "Next";
+            this.button33.UseVisualStyleBackColor = true;
+            // 
+            // button34
+            // 
+            this.button34.Location = new System.Drawing.Point(3, 3);
+            this.button34.Name = "button34";
+            this.button34.Size = new System.Drawing.Size(86, 23);
+            this.button34.TabIndex = 10;
+            this.button34.Text = "New Function";
+            this.button34.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -558,11 +591,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 496);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panelVariables);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panelKeypad);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.panelFunctions);
+            this.Controls.Add(this.panelVariables);
             this.Location = new System.Drawing.Point(1, 1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -629,10 +662,13 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Panel panelFunctions;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelVariables;
-        private System.Windows.Forms.Button button41;
         private System.Windows.Forms.Button button40;
+        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.Button button32;
+        private System.Windows.Forms.Button button33;
+        private System.Windows.Forms.Button button34;
 
     }
 }
