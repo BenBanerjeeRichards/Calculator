@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
         private Panel rightPanel;
 
         private List<FunctionView> functionViews = new List<FunctionView>();
+        private List<VariableView> variableViews = new List<VariableView>();
 
         private string html = "";
 
@@ -52,6 +53,7 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
             functionViews.Add(new FunctionView());
+            variableViews.Add(new VariableView());
         }
 
         private void addDisplayEntry(DisplayEntry entry)
@@ -159,19 +161,38 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void addButton(PanelView panelView, Panel panel, string name)
+        
+
+        private void addFunctionButton(FunctionView panelView, string name)
         {
             functionViews[currentFunctionViewIndex].addButton(name);
 
             foreach (Button btn in functionViews[currentFunctionViewIndex].getButtons())
             {
-                panel.Controls.Add(btn);
+                panelFunctions.Controls.Add(btn);
+            }
+        }
+
+        private void addVariableButton(VariableView panelView, string name)
+        {
+            // Variables beginning with _ are for system use only and should be ignored
+
+            if (name[0].ToString().Equals("_"))
+            {
+                return;
+            }
+
+            variableViews[currentVariableViewIndex].addButton(name);
+
+            foreach (Button btn in variableViews[currentVariableViewIndex].getButtons())
+            {
+                panelVariables.Controls.Add(btn);
             }
         }
 
         private void updateUI()
         {
-            // Check to see if there are any new functions of variables
+            // Check to see if there are any new functions
             List<Function> functions = new List<Function>();
             functions = calc.getFunctions();
             int diff = functions.Count - functionCount;
@@ -192,7 +213,7 @@ namespace WindowsFormsApplication1
                             currentFunctionViewIndex++;
                         }
 
-                        addButton(functionViews[currentFunctionViewIndex], panelFunctions, functions[functions.Count - (i + 1)].getName());
+                        addFunctionButton(functionViews[currentFunctionViewIndex], functions[functions.Count - (i + 1)].getName());
 
                     }
                 }
@@ -201,6 +222,63 @@ namespace WindowsFormsApplication1
                     // TODO remove functions
                 }
             }
+
+            // Check to see if there are any new  functions
+            List<Variable> variables = new List<Variable>();
+            variables = calc.getVariables();
+            diff = variables.Count - variableCount;
+
+            if (diff != 0)
+            {
+                Console.WriteLine("CHANGE");
+                // There has been a change in the number of variables
+                variableCount += diff;
+
+                if (diff > 0)
+                {
+                    for (int i = 0; i < diff; i++)
+                    {
+                        // Do we need a new panel
+                        if (variableViews[currentFunctionViewIndex].getFreeSpaces() < 1)
+                        {
+                            variableViews.Add(new VariableView());
+                            currentVariableViewIndex++;
+                        }
+
+                        addVariableButton(variableViews[currentVariableViewIndex], variables[variables.Count - (i + 1)].getName());
+
+                    }
+                }
+                else
+                {
+                    // TODO remove variables
+                }
+            }
+            
+            
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            // Function next
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            //Function prev
+
+        }
+
+        private void button40_Click(object sender, EventArgs e)
+        {
+            // Variable next
+
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            // Variable prev
+
         }
 
 

@@ -75,13 +75,13 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panelFunctions = new System.Windows.Forms.Panel();
-            this.button30 = new System.Windows.Forms.Button();
+            this.button34 = new System.Windows.Forms.Button();
+            this.button33 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
+            this.button30 = new System.Windows.Forms.Button();
             this.panelVariables = new System.Windows.Forms.Panel();
             this.button32 = new System.Windows.Forms.Button();
             this.button40 = new System.Windows.Forms.Button();
-            this.button33 = new System.Windows.Forms.Button();
-            this.button34 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelKeypad.SuspendLayout();
             this.panelFunctions.SuspendLayout();
@@ -521,14 +521,24 @@
             this.panelFunctions.Size = new System.Drawing.Size(280, 301);
             this.panelFunctions.TabIndex = 6;
             // 
-            // button30
+            // button34
             // 
-            this.button30.Location = new System.Drawing.Point(191, 275);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(86, 23);
-            this.button30.TabIndex = 9;
-            this.button30.Text = "Next";
-            this.button30.UseVisualStyleBackColor = true;
+            this.button34.Location = new System.Drawing.Point(3, 3);
+            this.button34.Name = "button34";
+            this.button34.Size = new System.Drawing.Size(86, 23);
+            this.button34.TabIndex = 10;
+            this.button34.Text = "New Function";
+            this.button34.UseVisualStyleBackColor = true;
+            // 
+            // button33
+            // 
+            this.button33.Location = new System.Drawing.Point(191, 275);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(86, 23);
+            this.button33.TabIndex = 11;
+            this.button33.Text = "Next";
+            this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
             // button31
             // 
@@ -538,6 +548,17 @@
             this.button31.TabIndex = 10;
             this.button31.Text = "Prev";
             this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
+            // 
+            // button30
+            // 
+            this.button30.Location = new System.Drawing.Point(191, 275);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(86, 23);
+            this.button30.TabIndex = 9;
+            this.button30.Text = "Next";
+            this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
             // 
             // panelVariables
             // 
@@ -566,24 +587,7 @@
             this.button40.TabIndex = 8;
             this.button40.Text = "Prev";
             this.button40.UseVisualStyleBackColor = true;
-            // 
-            // button33
-            // 
-            this.button33.Location = new System.Drawing.Point(191, 275);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(86, 23);
-            this.button33.TabIndex = 11;
-            this.button33.Text = "Next";
-            this.button33.UseVisualStyleBackColor = true;
-            // 
-            // button34
-            // 
-            this.button34.Location = new System.Drawing.Point(3, 3);
-            this.button34.Name = "button34";
-            this.button34.Size = new System.Drawing.Size(86, 23);
-            this.button34.TabIndex = 10;
-            this.button34.Text = "New Function";
-            this.button34.UseVisualStyleBackColor = true;
+            this.button40.Click += new System.EventHandler(this.button40_Click);
             // 
             // Form1
             // 
