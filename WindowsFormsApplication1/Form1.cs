@@ -166,11 +166,6 @@ namespace WindowsFormsApplication1
         private void addFunctionButton(FunctionView panelView, string name)
         {
             functionViews[currentFunctionViewIndex].addButton(name);
-
-            foreach (Button btn in functionViews[currentFunctionViewIndex].getButtons())
-            {
-                panelFunctions.Controls.Add(btn);
-            }
         }
 
         private void addVariableButton(VariableView panelView, string name)
@@ -183,6 +178,15 @@ namespace WindowsFormsApplication1
             }
 
             variableViews[currentVariableViewIndex].addButton(name);
+        }
+
+        private void updatePanels()
+        {
+
+            foreach (Button btn in functionViews[currentFunctionViewIndex].getButtons())
+            {
+                panelFunctions.Controls.Add(btn);
+            }
 
             foreach (Button btn in variableViews[currentVariableViewIndex].getButtons())
             {
@@ -254,13 +258,15 @@ namespace WindowsFormsApplication1
                     // TODO remove variables
                 }
             }
-            
+
+            updatePanels();
             
         }
 
         private void button31_Click(object sender, EventArgs e)
         {
             // Function next
+            
         }
 
         private void button33_Click(object sender, EventArgs e)
