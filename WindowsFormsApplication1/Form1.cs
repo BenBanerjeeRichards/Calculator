@@ -17,12 +17,17 @@ namespace WindowsFormsApplication1
         private Panel leftPanel;
         private Panel rightPanel;
 
-        private List<Button> buttonList = new List<Button>();
-        private List<Function> functionList = new List<Function>();
+        private List<FunctionView> functionViews = new List<FunctionView>();
 
         private string html = "";
 
         private PanelFactory panelFactory = new PanelFactory();
+
+        private int functionCount = 0;
+        private int variableCount = 0;
+
+        private int currentFunctionViewIndex = 0;
+        private int currentVariableViewIndex = 0;
 
         public Form1()
         {
@@ -46,18 +51,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            PanelView pv = new FunctionView();
-
-            Console.WriteLine(pv.getLocation());
-            pv.addButton("A Button");
-            Console.WriteLine(pv.getLocation());
-            pv.addButton("A Button");
-            Console.WriteLine(pv.getLocation());
-            pv.addButton("A Button");
-            Console.WriteLine(pv.getLocation());
-            pv.addButton("A Button");
-            Console.WriteLine(pv.getLocation());
-
+            functionViews.Add(new FunctionView());
         }
 
         private void addDisplayEntry(DisplayEntry entry)
@@ -147,19 +141,66 @@ namespace WindowsFormsApplication1
             if (e.KeyCode == Keys.Enter)
             {
                 string contents = textBox1.Text;
+
                 textBox1.Text = "";
+
+                if (contents.Trim().Equals(""))
+                {
+                    return;
+                }
 
                 CalculatorMessage cm = calc.evalulate(contents);
                 Console.WriteLine(cm);
 
                 DisplayEntry dm = new DisplayEntry((cm.getStatus() == Status.SUCCESS) ? DisplayType.RESULT : DisplayType.ERROR, cm.getBody());
                 addDisplayEntry(dm);
+
+                updateUI();
             }
         }
 
-        private void updateFunctionPane()
+        private void addButton(PanelView panelView, Panel panel, string name)
         {
-           
+            functionViews[currentFunctionViewIndex].addButton(name);
+
+            foreach (Button btn in functionViews[currentFunctionViewIndex].getButtons())
+            {
+                panel.Controls.Add(btn);
+            }
+        }
+
+        private void updateUI()
+        {
+            // Check to see if there are any new functions of variables
+            List<Function> functions = new List<Function>();
+            functions = calc.getFunctions();
+            int diff = functions.Count - functionCount;
+
+            if (diff != 0)
+            {
+                // There has been a change in the number of functions
+                functionCount += diff;
+
+                if (diff > 0)
+                {
+                    for (int i = 0; i < diff; i++)
+                    {
+                        // Do we need a new panel
+                        if (functionViews[currentFunctionViewIndex].getFreeSpaces() < 1)
+                        {
+                            functionViews.Add(new FunctionView());
+                            currentFunctionViewIndex++;
+                        }
+
+                        addButton(functionViews[currentFunctionViewIndex], panelFunctions, functions[functions.Count - (i + 1)].getName());
+
+                    }
+                }
+                else
+                {
+                    // TODO remove functions
+                }
+            }
         }
 
 
