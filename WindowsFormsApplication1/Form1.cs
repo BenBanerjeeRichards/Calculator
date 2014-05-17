@@ -8,6 +8,9 @@ using System.Windows.Input;
 
 namespace WindowsFormsApplication1
 {
+
+    // TODO Add History to enable up arrow retrieval thing
+
     public partial class Form1 : Form
     {
         private Calculator calc = new Calculator();
@@ -64,8 +67,9 @@ namespace WindowsFormsApplication1
                     return;
                 }
 
+                DisplayEntry dmEntry = new DisplayEntry(DisplayType.CALCULATION, contents);
+                addDisplayEntry(dmEntry);
                 CalculatorMessage cm = calc.evalulate(contents);
-                Console.WriteLine(cm);
 
                 DisplayEntry dm = new DisplayEntry((cm.getStatus() == Status.SUCCESS) ? DisplayType.RESULT : DisplayType.ERROR, cm.getBody());
                 addDisplayEntry(dm);
