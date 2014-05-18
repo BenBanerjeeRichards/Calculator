@@ -9,11 +9,11 @@ using System.Windows.Input;
 namespace WindowsFormsApplication1
 {
 
-    // TODO Add History to enable up arrow retrieval thing
-
     public partial class Form1 : Form
     {
         private Calculator calc = new Calculator();
+        private Stack<string> history = new Stack<string>();
+        private Stack<string> reverseHistory = new Stack<string>();
 
         private string html = "";
 
@@ -67,6 +67,8 @@ namespace WindowsFormsApplication1
                     return;
                 }
 
+                history.Push(contents);
+
                 DisplayEntry dmEntry = new DisplayEntry(DisplayType.CALCULATION, contents);
                 addDisplayEntry(dmEntry);
                 CalculatorMessage cm = calc.evalulate(contents);
@@ -74,8 +76,40 @@ namespace WindowsFormsApplication1
                 DisplayEntry dm = new DisplayEntry((cm.getStatus() == Status.SUCCESS) ? DisplayType.RESULT : DisplayType.ERROR, cm.getBody());
                 addDisplayEntry(dm);
 
+                while (reverseHistory.Count != 0)
+                {
+                    history.Push(reverseHistory.Pop());
+                }
+
+            } else if (e.KeyCode == Keys.Up)
+            {
+                // Revert to history
+
+                if (history.Count > 0)
+                {
+                    reverseHistory.Push(textBox1.Text);
+                    textBox1.Text = history.Pop();
+                }
+
+            } else if (e.KeyCode == Keys.Down)
+            {
+                if (!textBox1.Text.Trim().Equals("") && reverseHistory.Count > 0)
+                {
+                    string contents = textBox1.Text;
+                    textBox1.Text = reverseHistory.Pop();
+
+                    history.Push(contents);
+                }
             }
+
         }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
 
     }
 }
