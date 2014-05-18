@@ -21,14 +21,9 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
+            webBrowser1.Navigate("about:blank");
 
             writeHTMLToWebBrowser("<html> <body style=\"font-family:consolas; margin:10px;\">");
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void addDisplayEntry(DisplayEntry entry)
@@ -40,13 +35,12 @@ namespace WindowsFormsApplication1
         {
             this.html += html;
 
-            webBrowser1.Navigate("about:blank");
             HtmlDocument doc = webBrowser1.Document;
             doc.Write(String.Empty);
             webBrowser1.DocumentText = this.html;
 
             // Definitly a bad idea.
-            // Will replace when  I have figured out how events and threading works in C#
+            // Will replace (read: never, as I will forget) when  I have figured out how events and threading works in C#
             Application.DoEvents();
 
             webBrowser1.Document.Body.ScrollTop += 100000;
@@ -108,7 +102,6 @@ namespace WindowsFormsApplication1
         {
             Application.Exit();
         }
-
 
 
     }
